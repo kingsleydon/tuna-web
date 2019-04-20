@@ -1,7 +1,4 @@
-.App {
-  background-color: #111111;
-  min-height: 100vh;
-
+.Index {
   &-titleGroup {
     position: absolute;
     top: 40%;

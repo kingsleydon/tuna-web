@@ -5,26 +5,26 @@ import MenuButton from '../components/MenuButton'
 import {TITLE, SUB_TITLE} from '../constants/app.js'
 import './index.css'
 
-export default class App extends Component {
+export default class Index extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="Index">
         <Head>
           <title>Home</title>
         </Head>
 
-        <FullscreenButton className="App-fullscreenButton" />
+        <FullscreenButton className="Index-fullscreenButton" />
 
-        <div className="App-titleGroup">
-          <div className="App-titleGroup-title">{TITLE}</div>
-          <div className="App-titleGroup-subtitle">
+        <div className="Index-titleGroup">
+          <div className="Index-titleGroup-title">{TITLE}</div>
+          <div className="Index-titleGroup-subtitle">
             {SUB_TITLE.split('').map((letter, index) => (
               <span key={index}>{letter}</span>
             ))}
           </div>
         </div>
 
-        <div className="App-menu">
+        <div className="Index-menu">
           <MenuButton color="blue" extra="QUICK">
             快速开始
           </MenuButton>

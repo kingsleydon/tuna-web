@@ -4,6 +4,7 @@ import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import Head from '../components/Head'
 import '../styles/global.css'
+import './_app.css'
 
 const theme = createMuiTheme({
   palette: {
@@ -57,8 +58,8 @@ export default class Tuna extends App {
           />
         </Head>
         <MuiThemeProvider theme={theme}>
-          <Typography component="div">
-            <Component {...pageProps} />
+          <Typography component="div" className="App">
+              <Component {...pageProps} />
           </Typography>
         </MuiThemeProvider>
       </Container>
