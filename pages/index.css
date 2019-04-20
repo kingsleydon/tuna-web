@@ -1,11 +1,49 @@
 .App {
-  h1,
-  p {
-    text-align: center;
+  background-color: #111111;
+  min-height: 100vh;
+
+  &-titleGroup {
+    position: absolute;
+    top: 40%;
+    left: 150px;
+    transform: translateY(-50%);
+
+    &-title {
+      font-style: italic;
+      font-weight: 800;
+      font-size: 200px;
+      letter-spacing: 8px;
+    }
+
+    &-subtitle {
+      display: flex;
+
+      span {
+        text-align: center;
+        flex: 1;
+      }
+    }
   }
 
-  img {
-    display: block;
-    margin: 100px auto;
+  &-menu {
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+    display: flex;
+    justify-content: space-between;
+
+    .MenuButton {
+      display: inline-block;
+
+      & + .MenuButton {
+        margin-left: 30px;
+      }
+    }
+  }
+
+  &-fullscreenButton {
+    position: fixed !important;
+    top: 0;
+    right: 0;
   }
 }

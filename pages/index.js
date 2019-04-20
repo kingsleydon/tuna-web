@@ -1,5 +1,8 @@
 import React, {Component} from 'react'
 import Head from '../components/Head'
+import FullscreenButton from '../components/FullscreenButton'
+import MenuButton from '../components/MenuButton'
+import {TITLE, SUB_TITLE} from '../constants/app.js'
 import './index.css'
 
 export default class App extends Component {
@@ -9,13 +12,26 @@ export default class App extends Component {
         <Head>
           <title>Home</title>
         </Head>
-        <img
-          src="https://i.loli.net/2019/04/08/5caac418e0bfe.png"
-          width="300"
-          alt="isshin"
-        />
-        <h1>Isshin</h1>
-        <p>Start your project now</p>
+
+        <FullscreenButton className="App-fullscreenButton" />
+
+        <div className="App-titleGroup">
+          <div className="App-titleGroup-title">{TITLE}</div>
+          <div className="App-titleGroup-subtitle">
+            {SUB_TITLE.split('').map((letter, index) => (
+              <span key={index}>{letter}</span>
+            ))}
+          </div>
+        </div>
+
+        <div className="App-menu">
+          <MenuButton color="blue" extra="QUICK">
+            快速开始
+          </MenuButton>
+          <MenuButton color="green" extra="FREE">
+            自由模式
+          </MenuButton>
+        </div>
       </div>
     )
   }

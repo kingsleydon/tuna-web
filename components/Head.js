@@ -1,6 +1,6 @@
 import React, {cloneElement} from 'react'
 import NextHead from 'next/head'
-import {TITLE_TEMPLATE} from '../constants/headConstants'
+import {TITLE_TEMPLATE} from '../constants/head'
 
 const replaceTitle = element => {
   if (element.type === 'title') {

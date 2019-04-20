@@ -4,10 +4,10 @@ module.exports = {
       stage: 0,
       features: {
         'nesting-rules': false,
-        // 'custom-properties': {
-        //   preserve: false,
-        //   importFrom: 'styles/variables.css',
-        // },
+        'custom-properties': {
+          preserve: false,
+          // importFrom: 'styles/variables.css',
+        },
       },
     }),
     require('postcss-nested'),
