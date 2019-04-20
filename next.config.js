@@ -3,6 +3,7 @@ const merge = require('webpack-merge')
 const webpackConfig = require('./webpack.config')
 
 module.exports = withCss({
+  target: 'serverless',
   webpack: config => {
     // add polyfill
     const originalEntry = config.entry
