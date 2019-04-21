@@ -18,8 +18,10 @@
     "@material-ui/core": "^3.9.3",
     "@material-ui/icons": "^3.0.2",
     "@zeit/next-css": "^1.0.1",
+    "@zeit/next-workers": "^1.0.1-canary.1",
     "classnames": "^2.2.6",
     "next": "^8.1.0",
+    "node-vibrant": "^3.2.0-alpha",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
@@ -38,7 +40,8 @@
     "postcss-normalize": "^7.0.1",
     "postcss-preset-env": "^6.6.0",
     "prettier": "^1.16.4",
-    "webpack-merge": "^4.2.1"
+    "webpack-merge": "^4.2.1",
+    "worker-loader": "^2.0.0"
   },
   "husky": {
     "hooks": {
