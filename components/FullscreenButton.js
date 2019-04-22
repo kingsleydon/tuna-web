@@ -1,6 +1,4 @@
 import React, {Component} from 'react'
-import Button from '@material-ui/core/Button'
-import FullscreenIcon from '@material-ui/icons/Fullscreen'
 
 export default class FullscreenButton extends Component {
   state = {
@@ -33,10 +31,9 @@ export default class FullscreenButton extends Component {
     }
 
     return (
-      <Button {...this.props} onClick={this.toggleFullscreen}>
-        <FullscreenIcon />
+      <button {...this.props} onClick={this.toggleFullscreen}>
         全屏
-      </Button>
+      </button>
     )
   }
 }

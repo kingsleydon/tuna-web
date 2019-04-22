@@ -11,6 +11,7 @@ export default class Song extends Component {
     vibrantColor: '#eeeeee',
     song: null,
   }
+
   componentDidMount() {
     const {
       router: {
@@ -52,7 +53,7 @@ export default class Song extends Component {
     } = song
 
     return (
-      <div className="Song Container">
+      <div className="Song">
         <div className="Song-Info">
           <div className="Song-coverWrapper">
             <img src={cover} className="Song-cover" />

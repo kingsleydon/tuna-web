@@ -1,46 +1,18 @@
 import React from 'react'
 import App, {Container} from 'next/app'
-import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles'
-import Typography from '@material-ui/core/Typography'
 import Head from '../components/Head'
 import '../styles/global.css'
-import './_app.css'
-
-const theme = createMuiTheme({
-  palette: {
-    type: 'dark',
-  },
-  typography: {
-    useNextVariants: true,
-    fontFamily: [
-      '"Open Sans"',
-      '-apple-system',
-      'BlinkMacSystemFont',
-      '"Segoe UI"',
-      '"PingFang SC"',
-      '"Hiragino Sans GB"',
-      '"Microsoft YaHei"',
-      '"Helvetica Neue"',
-      'Helvetica',
-      'Arial',
-      'sans-serif',
-      '"Apple Color Emoji"',
-      '"Segoe UI Emoji"',
-      '"Segoe UI Symbol"',
-    ].join(','),
-  },
-})
 
 export default class Tuna extends App {
-  static async getInitialProps({Component, ctx}) {
-    let pageProps = {}
+  // static async getInitialProps({Component, ctx}) {
+  //   let pageProps = {}
 
-    if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx)
-    }
+  //   if (Component.getInitialProps) {
+  //     pageProps = await Component.getInitialProps(ctx)
+  //   }
 
-    return {pageProps}
-  }
+  //   return {pageProps}
+  // }
 
   render() {
     const {Component, pageProps} = this.props
@@ -57,11 +29,7 @@ export default class Tuna extends App {
             rel="stylesheet"
           />
         </Head>
-        <MuiThemeProvider theme={theme}>
-          <Typography component="div" className="App">
-              <Component {...pageProps} />
-          </Typography>
-        </MuiThemeProvider>
+        <Component {...pageProps} />
       </Container>
     )
   }
