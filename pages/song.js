@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import {withRouter} from 'next/router'
 import Vibrant from 'node-vibrant'
+import Head from '../components/Head'
+import Parallelogram from '../components/Parallelogram'
 import SONGS from '../constants/songs'
 import './song.css'
 
@@ -54,26 +56,19 @@ export default class Song extends Component {
 
     return (
       <div className="Song">
+        <Head>
+          <title>{name}</title>
+        </Head>
         <div className="Song-Info">
           <div className="Song-coverWrapper">
             <img src={cover} className="Song-cover" />
           </div>
-          <div className="Song-name">
-            <div
-              className="Song-nameBackground"
-              style={{background: vibrantColor}}
-            />
-            <span>{name}</span>
-          </div>
-          <div className="Song-subInfo">
-            <div
-              className="Song-subInfoBackground"
-              style={{background: mutedColor}}
-            />
-            <span>
-              {artist} {albumName}
-            </span>
-          </div>
+          <Parallelogram className="Song-name" color={vibrantColor}>
+            {name}
+          </Parallelogram>
+          <Parallelogram className="Song-subInfo" color={mutedColor}>
+            {artist} {albumName}
+          </Parallelogram>
         </div>
       </div>
     )

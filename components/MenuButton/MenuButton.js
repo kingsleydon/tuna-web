@@ -1,21 +1,22 @@
 import React, {Component} from 'react'
 import cx from 'classnames'
-// import Link from 'next/link'
+import Parallelogram from '../Parallelogram'
 import './MenuButton.css'
 
 export default class MenuButton extends Component {
   render() {
-    const {className, color, extra, children, ...restProps} = this.props
+    const {className, extra, children, ...restProps} = this.props
     return (
-      <div
-        className={cx('MenuButton', `MenuButton-${color}`, className)}
+      <Parallelogram
+        className={cx('MenuButton', className)}
+        role="button"
         {...restProps}
       >
         {children}
         {typeof extra === 'string' && (
           <div className="MenuButton-extra">{extra.toUpperCase()}</div>
         )}
-      </div>
+      </Parallelogram>
     )
   }
 }

@@ -11,7 +11,6 @@
 
   &-Info {
     font-weight: 800;
-    font-style: italic;
 
     position: fixed;
     left: 0;
@@ -31,22 +30,10 @@
   &-subInfo {
     padding: 20px 50px 20px var(--left);
     width: fit-content;
-    position: relative;
     line-height: 1;
 
-    span {
-      position: relative;
+    .Parallelogram-background {
+      left: -20px;
     }
-  }
-
-  &-nameBackground,
-  &-subInfoBackground {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: -100%;
-    right: 0;
-    transform: skewX(-10deg);
-    background: inherit;
   }
 }

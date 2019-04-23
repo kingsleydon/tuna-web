@@ -1,0 +1,16 @@
+.Parallelogram {
+  position: relative;
+  width: fit-content;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.88);
+
+  &-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform: skewX(-10deg);
+    z-index: -1;
+  }
+}
