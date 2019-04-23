@@ -19,6 +19,7 @@
     "@zeit/next-workers": "^1.0.1-canary.1",
     "classnames": "^2.2.6",
     "color": "^3.1.0",
+    "howler": "^2.1.2",
     "next": "^8.1.0",
     "node-vibrant": "^3.2.0-alpha",
     "react": "^16.8.6",

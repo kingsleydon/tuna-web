@@ -1,8 +1,10 @@
 import React, {Component} from 'react'
 import {withRouter} from 'next/router'
 import Vibrant from 'node-vibrant'
+import {Howl} from 'howler'
 import Head from '../components/Head'
 import Parallelogram from '../components/Parallelogram'
+import ProgressBar from '../components/ProgressBar'
 import SONGS from '../constants/songs'
 import './song.css'
 
@@ -12,6 +14,7 @@ export default class Song extends Component {
     mutedColor: '#ffffff',
     vibrantColor: '#eeeeee',
     song: null,
+    duration: null,
   }
 
   componentDidMount() {
@@ -27,7 +30,9 @@ export default class Song extends Component {
     }
 
     this.setState({song})
+
     const {
+      name,
       album: {cover},
     } = song
 
@@ -39,10 +44,27 @@ export default class Song extends Component {
           vibrantColor: palette.LightVibrant.hex,
         })
       })
+
+    this.song = new Howl({
+      src: [`/static/${name}.mp3`],
+    })
+
+    this.song.once('load', () => {
+      this.song.play()
+      this.setState({
+        duration: this.song.duration(),
+      })
+    })
+  }
+
+  componentWillUnmount() {
+    if (this.song) {
+      this.song.off()
+    }
   }
 
   render() {
-    const {mutedColor, vibrantColor, song} = this.state
+    const {mutedColor, vibrantColor, song, duration} = this.state
 
     if (!song) {
       return null
@@ -59,9 +81,16 @@ export default class Song extends Component {
         <Head>
           <title>{name}</title>
         </Head>
+
         <div className="Song-Info">
           <div className="Song-coverWrapper">
-            <img src={cover} className="Song-cover" />
+            <img
+              src={cover}
+              className="Song-cover"
+              onClick={() => {
+                this.song.pause()
+              }}
+            />
           </div>
           <Parallelogram className="Song-name" color={vibrantColor}>
             {name}
@@ -70,6 +99,8 @@ export default class Song extends Component {
             {artist} {albumName}
           </Parallelogram>
         </div>
+
+        <ProgressBar duration={duration} />
       </div>
     )
   }
