@@ -19,11 +19,13 @@ export default class Parallelogram extends Component {
     if (firstColor && !secondColor) {
       secondColor = Color(firstColor)
         .saturate(0.2)
+        .lighten(0.2)
         .rotate(20)
         .hex()
 
       firstColor = Color(firstColor)
-        .saturate(-0.2)
+        .desaturate(0.3)
+        .darken(0.3)
         .rotate(-20)
         .hex()
     }

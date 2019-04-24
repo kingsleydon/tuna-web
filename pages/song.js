@@ -18,6 +18,19 @@ export default class Song extends Component {
   }
 
   componentDidMount() {
+    this.setSong(() => {
+      this.setColor()
+      this.loadSong()
+    })
+  }
+
+  componentWillUnmount() {
+    if (this.song) {
+      this.song.off()
+    }
+  }
+
+  setSong = callback => {
     const {
       router: {
         query: {id},
@@ -29,12 +42,32 @@ export default class Song extends Component {
       return
     }
 
-    this.setState({song})
+    this.setState({song}, callback)
+  }
 
+  loadSong = () => {
     const {
-      name,
-      album: {cover},
-    } = song
+      song: {name},
+    } = this.state
+
+    this.song = new Howl({
+      src: [`/static/${name}.mp3`],
+    })
+
+    this.song.once('load', () => {
+      // this.song.play()
+      this.setState({
+        duration: this.song.duration(),
+      })
+    })
+  }
+
+  setColor = () => {
+    const {
+      song: {
+        album: {cover},
+      },
+    } = this.state
 
     Vibrant.from(cover)
       .getPalette()
@@ -44,23 +77,6 @@ export default class Song extends Component {
           vibrantColor: palette.LightVibrant.hex,
         })
       })
-
-    this.song = new Howl({
-      src: [`/static/${name}.mp3`],
-    })
-
-    this.song.once('load', () => {
-      this.song.play()
-      this.setState({
-        duration: this.song.duration(),
-      })
-    })
-  }
-
-  componentWillUnmount() {
-    if (this.song) {
-      this.song.off()
-    }
   }
 
   render() {
