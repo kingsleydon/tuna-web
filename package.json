@@ -7,10 +7,9 @@
   "author": "kingsleydon <tj971204@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "next",
+    "dev": "node server.js",
     "build": "next build",
-    "start": "next start",
-    "export": "next export",
+    "start": "NODE_ENV=production node server.js",
     "lint:fix": "eslint . --fix --ignore-path .gitignore"
   },
   "dependencies": {
@@ -19,7 +18,9 @@
     "@zeit/next-workers": "^1.0.1-canary.1",
     "classnames": "^2.2.6",
     "color": "^3.1.0",
+    "express": "^4.16.4",
     "howler": "^2.1.2",
+    "lodash": "^4.17.11",
     "next": "^8.1.0",
     "node-vibrant": "^3.2.0-alpha",
     "react": "^16.8.6",

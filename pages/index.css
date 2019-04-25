@@ -1,19 +1,21 @@
 .Index {
+  overflow: hidden;
+
   &-titleGroup {
-    position: absolute;
-    top: 40%;
-    left: 150px;
-    transform: translateY(-50%);
+    width: fit-content;
+    margin: 90px auto 0;
 
     &-title {
       font-style: italic;
       font-weight: 800;
-      font-size: 200px;
+      font-size: 100px;
       letter-spacing: 8px;
+      width: fit-content;
     }
 
     &-subtitle {
       display: flex;
+      font-size: 10px;
 
       span {
         text-align: center;
@@ -23,22 +25,19 @@
   }
 
   &-menu {
-    position: fixed;
-    right: 50px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: fit-content;
+    margin: 0 auto;
     bottom: 50px;
+    display: flex;
+    flex-direction: column;
 
     .MenuButton {
-      display: inline-block;
-
       & + .MenuButton {
-        margin-left: 30px;
+        margin-top: 20px;
       }
     }
-  }
-
-  &-fullscreenButton {
-    position: fixed !important;
-    top: 0;
-    right: 0;
   }
 }

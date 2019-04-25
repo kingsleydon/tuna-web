@@ -1,20 +1,30 @@
 import React, {Component} from 'react'
 import cx from 'classnames'
+import Parallelogram from '../../components/Parallelogram'
 import './ProgressBar.css'
 
 export default class ProgressBar extends Component {
   render() {
     const {
       className,
-      // color,
-      duration,
-      //  current
+      color,
+      duration = 0,
+      position = 0,
       ...restProps
     } = this.props
 
     return (
       <div className={cx('ProgressBar', className)} {...restProps}>
-        <div className="ProgressBar-duration">{duration}</div>
+        <Parallelogram
+          className="ProgressBar-bar"
+          color={color}
+          backgroundStyle={{
+            width: position ? `${(position / duration) * 100}%` : '1px',
+          }}
+        />
+        <div className="ProgressBar-duration">
+          {parseInt(duration - position, 10)}
+        </div>
       </div>
     )
   }

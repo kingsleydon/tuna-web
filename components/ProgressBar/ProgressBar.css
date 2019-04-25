@@ -1,4 +1,16 @@
 .ProgressBar {
+  display: flex;
+  align-items: center;
+
+  &-bar {
+    flex: 1;
+    height: 20px;
+    margin-right: 10px;
+  }
+
   &-duration {
+    font-style: italic;
+    width: 27px;
+    text-align: right;
   }
 }
