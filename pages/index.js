@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import Head from '../components/Head'
-import FullscreenButton from '../components/FullscreenButton'
 import MenuButton from '../components/MenuButton'
 import {TITLE, SUB_TITLE} from '../constants/app.js'
 import './index.css'
@@ -12,8 +11,6 @@ export default class Index extends Component {
         <Head>
           <title>Home</title>
         </Head>
-
-        <FullscreenButton className="Index-fullscreenButton" />
 
         <div className="Index-titleGroup">
           <div className="Index-titleGroup-title">{TITLE}</div>
