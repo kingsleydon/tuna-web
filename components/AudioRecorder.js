@@ -1,6 +1,6 @@
 import {Component} from 'react'
 import noop from 'lodash/noop'
-import '../utils/recorder.mp3.min'
+import Recorder from '../utils/recorder'
 
 export default class AudioRecorder extends Component {
   state = {

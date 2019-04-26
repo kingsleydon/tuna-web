@@ -1,20 +1,21 @@
 import React, {Component, Fragment} from 'react'
 import {withRouter} from 'next/router'
-import dynamic from 'next/dynamic'
+// import dynamic from 'next/dynamic'
 import Vibrant from 'node-vibrant'
 import {Howl} from 'howler'
 import Head from '../../../components/Head'
+import AudioRecorder from '../../../components/AudioRecorder'
 import Parallelogram from '../../../components/Parallelogram'
 import ProgressBar from '../../../components/ProgressBar'
 import SONGS from '../../../constants/songs'
 import './index.css'
 
-const AudioRecorder = dynamic(
-  () => import('../../../components/AudioRecorder'),
-  {
-    ssr: false,
-  }
-)
+// const AudioRecorder = dynamic(
+//   () => import('../../../components/AudioRecorder'),
+//   {
+//     ssr: false,
+//   }
+// )
 // const ForwardedRefAudioRecorder = forwardRef((props, ref) => (
 //   <AudioRecorder {...props} forwardRef={ref} />
 // ))
@@ -101,15 +102,19 @@ export default class Song extends Component {
 
   start = () => {
     this.song.play()
+    this.song.once('end', this.stop)
     this.rec.start()
     window.requestAnimationFrame(this.setPosition)
   }
 
   stop = () => {
+    // FIXME: remove debug pause
+    // this.song.pause()
+
     this.rec.stop(function(blob) {
-      const link = document.createElement('a') // Or maybe get it from the current document
-      link.href = blob
-      link.download = 'aDefaultFileName.mp3'
+      const link = document.createElement('a')
+      link.href = window.URL.createObjectURL(blob)
+      link.download = 'test1.wav'
       link.click()
     })
   }
