@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import cx from 'classnames'
+import {formatTime} from '../../utils/formatTime'
 import Parallelogram from '../../components/Parallelogram'
 import './ProgressBar.css'
 
@@ -23,7 +24,7 @@ export default class ProgressBar extends Component {
           }}
         />
         <div className="ProgressBar-duration">
-          {parseInt(duration - position, 10)}
+          {formatTime(parseInt(duration - position, 10))}
         </div>
       </div>
     )

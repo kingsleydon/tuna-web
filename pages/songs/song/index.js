@@ -1,30 +1,20 @@
 import React, {Component, Fragment} from 'react'
 import {withRouter} from 'next/router'
-// import dynamic from 'next/dynamic'
-import Vibrant from 'node-vibrant'
 import {Howl} from 'howler'
 import Head from '../../../components/Head'
 import AudioRecorder from '../../../components/AudioRecorder'
 import Parallelogram from '../../../components/Parallelogram'
+import Lyric from '../../../components/Lyric'
 import ProgressBar from '../../../components/ProgressBar'
 import SONGS from '../../../constants/songs'
 import './index.css'
 
-// const AudioRecorder = dynamic(
-//   () => import('../../../components/AudioRecorder'),
-//   {
-//     ssr: false,
-//   }
-// )
-// const ForwardedRefAudioRecorder = forwardRef((props, ref) => (
-//   <AudioRecorder {...props} forwardRef={ref} />
-// ))
+const nameColor = ['#7367F0', '#CE9FFC']
+// const subInfoColor = ['#32CCBC', '#90F7EC']
 
 @withRouter
 export default class Song extends Component {
   state = {
-    mutedColor: '#ffffff',
-    vibrantColor: '#eeeeee',
     song: null,
     duration: 0,
     position: 0,
@@ -35,7 +25,7 @@ export default class Song extends Component {
 
   componentDidMount() {
     this.setSong(() => {
-      this.setColor()
+      // this.setColor()
       this.loadSong()
     })
   }
@@ -78,24 +68,27 @@ export default class Song extends Component {
     })
   }
 
-  setColor = () => {
-    const {
-      song: {
-        album: {cover},
-      },
-    } = this.state
+  // setColor = () => {
+  //   const {
+  //     song: {
+  //       album: {cover},
+  //     },
+  //   } = this.state
 
-    Vibrant.from(cover)
-      .getPalette()
-      .then(palette => {
-        this.setState({
-          mutedColor: palette.DarkMuted.hex,
-          vibrantColor: palette.LightVibrant.hex,
-        })
-      })
-  }
+  //   Vibrant.from(cover)
+  //     .getPalette()
+  //     .then(palette => {
+  //       this.setState({
+  //         mutedColor: palette.DarkMuted.hex,
+  //         vibrantColor: palette.LightVibrant.hex,
+  //       })
+  //     })
+  // }
 
   setPosition = () => {
+    if (!this.song.playing()) {
+      return
+    }
     this.setState({position: this.song.seek()})
     window.requestAnimationFrame(this.setPosition)
   }
@@ -103,20 +96,22 @@ export default class Song extends Component {
   start = () => {
     this.song.play()
     this.song.once('end', this.stop)
-    this.rec.start()
+    // FIXME: start
+    // this.rec.start()
     window.requestAnimationFrame(this.setPosition)
   }
 
   stop = () => {
     // FIXME: remove debug pause
-    // this.song.pause()
+    this.song.pause()
 
-    this.rec.stop(function(blob) {
-      const link = document.createElement('a')
-      link.href = window.URL.createObjectURL(blob)
-      link.download = 'test1.wav'
-      link.click()
-    })
+    // FIXME: end
+    // this.rec.stop(function(blob) {
+    //   const link = document.createElement('a')
+    //   link.href = window.URL.createObjectURL(blob)
+    //   link.download = 'test1.wav'
+    //   link.click()
+    // })
   }
 
   setRecRef = el => {
@@ -125,8 +120,6 @@ export default class Song extends Component {
 
   render() {
     const {
-      mutedColor,
-      vibrantColor,
       song,
       duration,
       position,
@@ -139,12 +132,15 @@ export default class Song extends Component {
       return null
     }
 
+    // FIXME: loading debug
     const loading = !songLoaded || !recorderLoaded
+    // const loading = false
 
     const {
       name,
-      artist,
-      album: {name: albumName},
+      // artist,
+      // album: {name: albumName},
+      lyric,
     } = song
 
     return (
@@ -181,12 +177,12 @@ export default class Song extends Component {
               }}
             />
           </div> */}
-          <Parallelogram className="Song-name" color={vibrantColor}>
-            {name}
+          <Parallelogram className="Song-name" color={nameColor}>
+            RECORDING
           </Parallelogram>
-          <Parallelogram className="Song-subInfo" color={mutedColor}>
+          {/* <Parallelogram className="Song-subInfo" color={subInfoColor}>
             {artist} {albumName}
-          </Parallelogram>
+          </Parallelogram> */}
         </div>
 
         <div className="Song-body">
@@ -199,13 +195,16 @@ export default class Song extends Component {
               <div>使用系统浏览器重试</div>
             </Fragment>
           )}
+          {!loading && (
+            <Lyric lyric={lyric} position={position} offset={song.offset} />
+          )}
         </div>
 
         {!loading && (
           <ProgressBar
             className="Song-ProgressBar"
             duration={duration}
-            color={vibrantColor}
+            color={nameColor}
             position={position}
           />
         )}
