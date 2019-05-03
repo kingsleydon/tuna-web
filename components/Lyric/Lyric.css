@@ -1,18 +1,26 @@
 .Lyric {
   text-align: center;
   transition: transform 0.3s ease-in;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
 
   &-line {
     padding: 10px 0;
     transition: 0.3s ease-in;
+    background-clip: text;
 
     &--acted {
       filter: opacity(0);
+      background-image: linear-gradient(to right, #6c5b7b, #c06c84);
     }
 
     &--active {
       padding: 20px 0;
       transform: scale(2);
+      color: transparent;
     }
 
     &--border {
@@ -21,6 +29,26 @@
 
     &--inactive {
       filter: opacity(0);
+    }
+  }
+
+  &-countdown {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+
+    &Box {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: inline-block;
+      background-color: #fff;
+
+      & + & {
+        margin-left: 10px;
+      }
     }
   }
 }

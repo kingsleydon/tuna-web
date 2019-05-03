@@ -22,18 +22,10 @@ export default class Index extends Component {
         </div>
 
         <div className="Index-menu">
-          <MenuButton
-            color={['#6c5b7b', '#c06c84']}
-            // color="#6c5b7b"
-            extra="QUICK"
-          >
+          <MenuButton color={['#6c5b7b', '#c06c84']} extra="QUICK">
             快速开始
           </MenuButton>
-          <MenuButton
-            color={['#11998e', '#38ef7d']}
-            // color="#11998e"
-            extra="FREE"
-          >
+          <MenuButton color={['#11998e', '#38ef7d']} extra="FREE">
             自由模式
           </MenuButton>
         </div>

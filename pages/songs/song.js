@@ -1,15 +1,15 @@
 import React, {Component, Fragment} from 'react'
 import {withRouter} from 'next/router'
 import {Howl} from 'howler'
-import Head from '../../../components/Head'
-import AudioRecorder from '../../../components/AudioRecorder'
-import Parallelogram from '../../../components/Parallelogram'
-import Lyric from '../../../components/Lyric'
-import ProgressBar from '../../../components/ProgressBar'
-import SONGS from '../../../constants/songs'
-import './index.css'
+import Head from '../../components/Head'
+import AudioRecorder from '../../components/AudioRecorder'
+import Parallelogram from '../../components/Parallelogram'
+import Lyric from '../../components/Lyric'
+import ProgressBar from '../../components/ProgressBar'
+import SONGS from '../../constants/songs'
+import './song.css'
 
-const nameColor = ['#7367F0', '#CE9FFC']
+const nameColor = ['#6c5b7b', '#c06c84']
 // const subInfoColor = ['#32CCBC', '#90F7EC']
 
 @withRouter
@@ -25,7 +25,6 @@ export default class Song extends Component {
 
   componentDidMount() {
     this.setSong(() => {
-      // this.setColor()
       this.loadSong()
     })
   }
@@ -67,23 +66,6 @@ export default class Song extends Component {
       })
     })
   }
-
-  // setColor = () => {
-  //   const {
-  //     song: {
-  //       album: {cover},
-  //     },
-  //   } = this.state
-
-  //   Vibrant.from(cover)
-  //     .getPalette()
-  //     .then(palette => {
-  //       this.setState({
-  //         mutedColor: palette.DarkMuted.hex,
-  //         vibrantColor: palette.LightVibrant.hex,
-  //       })
-  //     })
-  // }
 
   setPosition = () => {
     if (!this.song.playing()) {

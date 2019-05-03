@@ -20,7 +20,9 @@ export default class ProgressBar extends Component {
           className="ProgressBar-bar"
           color={color}
           backgroundStyle={{
-            width: position ? `${(position / duration) * 100}%` : '1px',
+            background: `linear-gradient(to right, ${color[0]} 0, ${color[1]} ${
+              position ? `${(position / duration) * 100}%` : '1px'
+            }, transparent 0)`,
           }}
         />
         <div className="ProgressBar-duration">
