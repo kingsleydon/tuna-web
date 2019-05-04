@@ -142,7 +142,7 @@ export default class Song extends Component {
         />
 
         <div
-          className="Song-header"
+          className="Page-header"
           // FIXME: remove debug
           onClick={() => {
             if (this.song) {
@@ -150,21 +150,9 @@ export default class Song extends Component {
             }
           }}
         >
-          {/* <div className="Song-coverWrapper">
-            <img
-              src={cover}
-              className="Song-cover"
-              onClick={() => {
-                this.song.pause()
-              }}
-            />
-          </div> */}
-          <Parallelogram className="Song-name" color={nameColor}>
+          <Parallelogram className="Page-name" color={nameColor}>
             RECORDING
           </Parallelogram>
-          {/* <Parallelogram className="Song-subInfo" color={subInfoColor}>
-            {artist} {albumName}
-          </Parallelogram> */}
         </div>
 
         <div className="Song-body">

@@ -8,8 +8,12 @@ export default class AudioRecorder extends Component {
   }
 
   componentDidMount() {
-    const {onLoad = noop, onError = noop} = this.props
-    // eslint-disable-next-line no-undef
+    const {
+      onLoad = noop,
+      onError = noop,
+      //  onProgress = noop
+    } = this.props
+
     this.rec = new Recorder()
     this.rec.open(() => {
       onLoad()

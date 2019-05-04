@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import Link from 'next/link'
 import Head from '../components/Head'
 import MenuButton from '../components/MenuButton'
 import {TITLE, SUB_TITLE} from '../constants/app.js'
@@ -25,9 +26,11 @@ export default class Index extends Component {
           <MenuButton color={['#6c5b7b', '#c06c84']} extra="QUICK">
             快速开始
           </MenuButton>
-          <MenuButton color={['#11998e', '#38ef7d']} extra="FREE">
-            自由模式
-          </MenuButton>
+          <Link href="/songs">
+            <MenuButton color={['#11998e', '#38ef7d']} extra="FREE">
+              自由模式
+            </MenuButton>
+          </Link>
         </div>
       </div>
     )

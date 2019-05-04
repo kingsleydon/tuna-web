@@ -1,43 +1,6 @@
 .Song {
-  --left: 30px;
   display: flex;
   flex-direction: column;
-
-  /* &-cover {
-    display: block;
-    object-fit: cover;
-    width: 300px;
-    height: 300px;
-    margin: 0 0 30px var(--left);
-  } */
-
-  &-header {
-    font-weight: 800;
-
-    /* position: fixed;
-    left: 0;
-    top: 40%;
-    transform: translateY(-50%); */
-  }
-
-  &-name {
-    font-size: 40px;
-  }
-
-  &-subInfo {
-    font-size: 15px;
-  }
-
-  &-name,
-  &-subInfo {
-    padding: 15px 25px 15px var(--left);
-    width: fit-content;
-    line-height: 1;
-
-    .Parallelogram-background {
-      left: -20px;
-    }
-  }
 
   &-body {
     flex: 1;
