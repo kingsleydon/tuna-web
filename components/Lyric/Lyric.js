@@ -102,7 +102,7 @@ export default class Lyric extends Component {
           return (
             <div
               className={lineStyle(index)}
-              key={text}
+              key={`${index}-${text}`}
               {...activeLineIndex === index && {
                 style: {
                   backgroundImage: `linear-gradient(to right, #6c5b7b, #c06c84 ${linePercent}%, white 0%)`,

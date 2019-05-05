@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import Link from 'next/link'
+import {camelizeKeys} from 'humps'
 import Parallelogram from '../../components/Parallelogram'
 import axios from '../../utils/axios'
 import './index.css'
@@ -8,11 +9,10 @@ const headerColor = ['#32CCBC', '#90F7EC']
 
 export default class Songs extends Component {
   static async getInitialProps() {
-    const {
-      data: {list = []},
-    } = await axios('/audio/list')
-    return {list}
+    const {data = []} = await axios('/audio/list')
+    return {list: camelizeKeys(data)}
   }
+
   render() {
     const {list} = this.props
 

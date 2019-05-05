@@ -10,7 +10,10 @@ app.prepare().then(() => {
   const server = express()
 
   server.get('/songs/:id', (req, res) => {
-    return app.render(req, res, '/songs/song', {id: req.params.id})
+    return app.render(req, res, '/songs/song', {
+      ...req.query,
+      id: req.params.id,
+    })
   })
 
   server.get('*', (req, res) => {

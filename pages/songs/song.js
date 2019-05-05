@@ -1,12 +1,14 @@
 import React, {Component, Fragment} from 'react'
 import {withRouter} from 'next/router'
 import {Howl} from 'howler'
+import {camelizeKeys} from 'humps'
+import axios from '../../utils/axios'
 import Head from '../../components/Head'
 import AudioRecorder from '../../components/AudioRecorder'
 import Parallelogram from '../../components/Parallelogram'
 import Lyric from '../../components/Lyric'
 import ProgressBar from '../../components/ProgressBar'
-import SONGS from '../../constants/songs'
+// import SONGS from '../../constants/songs'
 import './song.css'
 
 const nameColor = ['#6c5b7b', '#c06c84']
@@ -14,8 +16,20 @@ const nameColor = ['#6c5b7b', '#c06c84']
 
 @withRouter
 export default class Song extends Component {
+  static async getInitialProps({
+    req: {
+      params: {id},
+    },
+  }) {
+    try {
+      const {data} = await axios(`/audio/${id}`)
+      return {song: camelizeKeys(data)}
+    } catch (err) {
+      return {}
+    }
+  }
+
   state = {
-    song: null,
     duration: 0,
     position: 0,
     songLoaded: false,
@@ -24,9 +38,9 @@ export default class Song extends Component {
   }
 
   componentDidMount() {
-    this.setSong(() => {
+    if (this.props.song) {
       this.loadSong()
-    })
+    }
   }
 
   componentWillUnmount() {
@@ -35,28 +49,13 @@ export default class Song extends Component {
     }
   }
 
-  setSong = callback => {
-    const {
-      router: {
-        query: {id},
-      },
-    } = this.props
-    const song = SONGS.find(({id: songId}) => songId === Number(id))
-
-    if (!song) {
-      return
-    }
-
-    this.setState({song}, callback)
-  }
-
   loadSong = () => {
     const {
-      song: {name},
-    } = this.state
+      song: {accompanimentUrl},
+    } = this.props
 
     this.song = new Howl({
-      src: [`/static/${name}.mp3`],
+      src: [accompanimentUrl],
     })
 
     this.song.once('load', () => {
@@ -101,14 +100,9 @@ export default class Song extends Component {
   }
 
   render() {
-    const {
-      song,
-      duration,
-      position,
-      songLoaded,
-      recorderLoaded,
-      error,
-    } = this.state
+    const {duration, position, songLoaded, recorderLoaded, error} = this.state
+
+    const {song} = this.props
 
     if (!song) {
       return null
@@ -166,7 +160,11 @@ export default class Song extends Component {
             </Fragment>
           )}
           {!loading && (
-            <Lyric lyric={lyric} position={position} offset={song.offset} />
+            <Lyric
+              lyric={JSON.parse(lyric) || []}
+              position={position}
+              offset={song.offset}
+            />
           )}
         </div>
 
