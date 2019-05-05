@@ -1,3 +1,15 @@
 .Header {
+  font-weight: 800;
 
+  &-name {
+    --left: 30px;
+    font-size: 40px;
+    padding: 15px 25px 15px var(--left);
+    width: fit-content;
+    line-height: 1;
+
+    .Parallelogram-background {
+      left: -20px;
+    }
+  }
 }

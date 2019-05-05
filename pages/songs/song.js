@@ -5,22 +5,16 @@ import {camelizeKeys} from 'humps'
 import axios from '../../utils/axios'
 import Head from '../../components/Head'
 import AudioRecorder from '../../components/AudioRecorder'
-import Parallelogram from '../../components/Parallelogram'
 import Lyric from '../../components/Lyric'
 import ProgressBar from '../../components/ProgressBar'
-// import SONGS from '../../constants/songs'
+import {HEADER_MAP} from '../../constants/header'
 import './song.css'
 
-const nameColor = ['#6c5b7b', '#c06c84']
-// const subInfoColor = ['#32CCBC', '#90F7EC']
+const nameColor = HEADER_MAP['/songs/song']
 
 @withRouter
 export default class Song extends Component {
-  static async getInitialProps({
-    req: {
-      params: {id},
-    },
-  }) {
+  static async getInitialProps({query: {id}}) {
     try {
       const {data} = await axios(`/audio/${id}`)
       return {song: camelizeKeys(data)}
@@ -77,22 +71,21 @@ export default class Song extends Component {
   start = () => {
     this.song.play()
     this.song.once('end', this.stop)
-    // FIXME: start
-    // this.rec.start()
+    this.rec.start()
     window.requestAnimationFrame(this.setPosition)
   }
 
   stop = () => {
-    // FIXME: remove debug pause
-    this.song.pause()
+    const {
+      song: {id, name},
+    } = this.props
 
-    // FIXME: end
-    // this.rec.stop(function(blob) {
-    //   const link = document.createElement('a')
-    //   link.href = window.URL.createObjectURL(blob)
-    //   link.download = 'test1.wav'
-    //   link.click()
-    // })
+    this.rec.stop(function(blob) {
+      const formData = new FormData()
+      formData.set('source', id)
+      formData.append('file', blob, `${name}-${new Date().toISOString()}.wav`)
+      axios.post('/audio/', formData)
+    })
   }
 
   setRecRef = el => {
@@ -108,16 +101,9 @@ export default class Song extends Component {
       return null
     }
 
-    // FIXME: loading debug
-    const loading = !songLoaded || !recorderLoaded
-    // const loading = false
+    const loading = (!songLoaded || !recorderLoaded) && !error
 
-    const {
-      name,
-      // artist,
-      // album: {name: albumName},
-      lyric,
-    } = song
+    const {name, lyric} = song
 
     return (
       <div className="Song">
@@ -135,22 +121,8 @@ export default class Song extends Component {
           }}
         />
 
-        <div
-          className="Page-header"
-          // FIXME: remove debug
-          onClick={() => {
-            if (this.song) {
-              this.song.playing() ? this.stop() : this.start()
-            }
-          }}
-        >
-          <Parallelogram className="Page-name" color={nameColor}>
-            RECORDING
-          </Parallelogram>
-        </div>
-
         <div className="Song-body">
-          {loading && !error && <div>正在加载歌曲…</div>}
+          {loading && <div>正在加载歌曲…</div>}
           {error && (
             <Fragment>
               <div>初始化失败</div>
@@ -174,6 +146,12 @@ export default class Song extends Component {
             duration={duration}
             color={nameColor}
             position={position}
+            // FIXME: remove debug
+            onClick={() => {
+              if (this.song) {
+                this.song.playing() ? this.stop() : this.start()
+              }
+            }}
           />
         )}
       </div>

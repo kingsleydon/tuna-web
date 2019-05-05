@@ -1,6 +1,8 @@
 import React from 'react'
 import App, {Container} from 'next/app'
 import Head from '../components/Head'
+import Header from '../components/Header'
+import {HEADER_MAP} from '../constants/header'
 import '../styles/global.css'
 
 export default class Tuna extends App {
@@ -15,7 +17,12 @@ export default class Tuna extends App {
   // }
 
   render() {
-    const {Component, pageProps} = this.props
+    const {
+      Component,
+      pageProps,
+      router: {pathname},
+    } = this.props
+    const header = HEADER_MAP[pathname]
 
     return (
       <Container>
@@ -29,6 +36,7 @@ export default class Tuna extends App {
             rel="stylesheet"
           />
         </Head>
+        {header && <Header color={header.color}>{header.name}</Header>}
         <Component {...pageProps} />
       </Container>
     )

@@ -2,11 +2,8 @@ import React, {Component} from 'react'
 import cx from 'classnames'
 import Link from 'next/link'
 import {camelizeKeys} from 'humps'
-import Parallelogram from '../../components/Parallelogram'
 import axios from '../../utils/axios'
 import './index.css'
-
-const headerColor = ['#32CCBC', '#90F7EC']
 
 export default class Songs extends Component {
   static async getInitialProps() {
@@ -29,7 +26,7 @@ export default class Songs extends Component {
     }
 
     return (
-      <Link href={`/songs/${id}`} key={id}>
+      <Link href={`/songs/song?id=${id}`} as={`/songs/${id}`} key={id}>
         {item}
       </Link>
     )
@@ -40,12 +37,6 @@ export default class Songs extends Component {
 
     return (
       <div className="Songs">
-        <div className="Page-header">
-          <Parallelogram className="Page-name" color={headerColor}>
-            SELECT SONG
-          </Parallelogram>
-        </div>
-
         <div className="Songs-list">
           {list.map(this.renderSong)}
           {Array(5)

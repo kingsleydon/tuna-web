@@ -10,7 +10,7 @@ body {
     'Segoe UI Symbol';
 }
 
-#__next > div {
+#__next {
   width: 100vw;
   height: 100vh;
   max-width: 768px;
@@ -18,25 +18,15 @@ body {
   margin: 0 auto;
   background-color: #222222;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  > div:last-child {
+    flex: 1;
+  }
 }
 
 a {
   color: inherit;
   text-decoration: none;
-}
-
-.Page-header {
-  font-weight: 800;
-}
-
-.Page-name {
-  --left: 30px;
-  font-size: 40px;
-  padding: 15px 25px 15px var(--left);
-  width: fit-content;
-  line-height: 1;
-
-  .Parallelogram-background {
-    left: -20px;
-  }
 }
