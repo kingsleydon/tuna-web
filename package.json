@@ -10,7 +10,9 @@
     "dev": "node server.js",
     "build": "next build",
     "start": "NODE_ENV=production node server.js",
-    "lint:fix": "eslint . --fix --ignore-path .gitignore"
+    "lint:fix": "eslint . --fix --ignore-path .gitignore",
+    "new": "node new.js",
+    "new:page": "TYPE=page node new.js"
   },
   "dependencies": {
     "@babel/polyfill": "^7.4.3",
