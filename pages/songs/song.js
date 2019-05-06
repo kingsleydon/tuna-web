@@ -10,7 +10,7 @@ import ProgressBar from '../../components/ProgressBar'
 import {HEADER_MAP} from '../../constants/header'
 import './song.css'
 
-const nameColor = HEADER_MAP['/songs/song']
+const nameColor = HEADER_MAP['/songs/song'].color
 
 @withRouter
 export default class Song extends Component {
@@ -105,6 +105,7 @@ export default class Song extends Component {
     }
 
     const loading = (!songLoaded || !recorderLoaded) && !error
+    const loaded = songLoaded && recorderLoaded && !error
 
     const {name, lyric} = song
 
@@ -134,7 +135,7 @@ export default class Song extends Component {
               <div>使用系统浏览器重试</div>
             </Fragment>
           )}
-          {!loading && (
+          {loaded && (
             <Lyric
               lyric={JSON.parse(lyric) || []}
               position={position}
@@ -143,7 +144,7 @@ export default class Song extends Component {
           )}
         </div>
 
-        {!loading && (
+        {loaded && (
           <ProgressBar
             className="Song-ProgressBar"
             duration={duration}
