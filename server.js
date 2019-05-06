@@ -16,6 +16,13 @@ app.prepare().then(() => {
     })
   })
 
+  server.get('/results/:id', (req, res) => {
+    return app.render(req, res, '/result', {
+      ...req.query,
+      id: req.params.id,
+    })
+  })
+
   server.get('*', (req, res) => {
     return handle(req, res)
   })

@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from 'react'
-import {withRouter} from 'next/router'
+import Router, {withRouter} from 'next/router'
 import {Howl} from 'howler'
 import {camelizeKeys} from 'humps'
 import axios from '../../utils/axios'
@@ -29,6 +29,8 @@ export default class Song extends Component {
     songLoaded: false,
     recorderLoader: false,
     error: false,
+    uploading: false,
+    uploaded: false,
   }
 
   componentDidMount() {
@@ -84,10 +86,24 @@ export default class Song extends Component {
     } = this.props
 
     this.rec.stop(function(blob) {
+      this.setState({
+        uploading: true,
+      })
       const formData = new FormData()
       formData.set('source', id)
       formData.set('audio', blob)
-      axios.post('/audio/', formData)
+      axios.post('/audio/', formData).then(({data}) => {
+        const {taskId} = camelizeKeys(data)
+        if (taskId) {
+          this.setState({
+            uploaded: true,
+            uploading: false,
+          })
+          setTimeout(() => {
+            Router.push(`/result?id=${taskId}`, `/results/${taskId}`)
+          }, 3000)
+        }
+      })
     })
   }
 
@@ -96,7 +112,15 @@ export default class Song extends Component {
   }
 
   render() {
-    const {duration, position, songLoaded, recorderLoaded, error} = this.state
+    const {
+      duration,
+      position,
+      songLoaded,
+      recorderLoaded,
+      error,
+      uploading,
+      uploaded,
+    } = this.state
 
     const {song} = this.props
 
@@ -104,8 +128,9 @@ export default class Song extends Component {
       return null
     }
 
-    const loading = (!songLoaded || !recorderLoaded) && !error
-    const loaded = songLoaded && recorderLoaded && !error
+    const finished = uploaded || uploading
+    const loading = (!songLoaded || !recorderLoaded) && !error && !finished
+    const loaded = songLoaded && recorderLoaded && !error && !finished
 
     const {name, lyric} = song
 
@@ -142,6 +167,8 @@ export default class Song extends Component {
               offset={song.offset}
             />
           )}
+          {uploading && <div>上传中</div>}
+          {uploaded && <div>上传完成, 即将跳转</div>}
         </div>
 
         {loaded && (
