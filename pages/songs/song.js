@@ -85,7 +85,7 @@ export default class Song extends Component {
       song: {id},
     } = this.props
 
-    this.rec.stop(function(blob) {
+    this.rec.stop(blob => {
       this.setState({
         uploading: true,
       })
