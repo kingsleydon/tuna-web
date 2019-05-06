@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import cx from 'classnames'
 import Link from 'next/link'
+import Head from '../../components/Head'
 import {camelizeKeys} from 'humps'
 import axios from '../../utils/axios'
 import './index.css'
@@ -18,7 +19,6 @@ export default class Songs extends Component {
           <span className="Songs-name">{name}</span>
           <span className="Songs-artist">{artist}</span>
         </div>
-        {/* <img src="/static/music.svg" /> */}
       </a>
     )
     if (disabled) {
@@ -37,6 +37,9 @@ export default class Songs extends Component {
 
     return (
       <div className="Songs">
+        <Head>
+          <title>选择歌曲</title>
+        </Head>
         <div className="Songs-list">
           {list.map(this.renderSong)}
           {Array(5)

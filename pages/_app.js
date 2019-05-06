@@ -1,26 +1,18 @@
 import React from 'react'
 import App, {Container} from 'next/app'
+import {PageTransition} from 'next-page-transitions'
 import Head from '../components/Head'
 import Header from '../components/Header'
 import {HEADER_MAP} from '../constants/header'
 import '../styles/global.css'
 
+const timeout = 400
 export default class Tuna extends App {
-  // static async getInitialProps({Component, ctx}) {
-  //   let pageProps = {}
-
-  //   if (Component.getInitialProps) {
-  //     pageProps = await Component.getInitialProps(ctx)
-  //   }
-
-  //   return {pageProps}
-  // }
-
   render() {
     const {
       Component,
       pageProps,
-      router: {pathname},
+      router: {pathname, asPath},
     } = this.props
     const header = HEADER_MAP[pathname]
 
@@ -36,8 +28,18 @@ export default class Tuna extends App {
             rel="stylesheet"
           />
         </Head>
-        {header && <Header color={header.color}>{header.name}</Header>}
-        <Component {...pageProps} />
+        <PageTransition classNames="Header-transition" timeout={timeout}>
+          {header ? (
+            <Header color={header.color} key={header.name}>
+              {header.name}
+            </Header>
+          ) : (
+            <div className="Header-placeholder" />
+          )}
+        </PageTransition>
+        <PageTransition classNames="Page-transition" timeout={timeout}>
+          <Component {...pageProps} key={asPath} />
+        </PageTransition>
       </Container>
     )
   }

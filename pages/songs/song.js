@@ -39,7 +39,10 @@ export default class Song extends Component {
 
   componentWillUnmount() {
     if (this.song) {
-      this.song.off()
+      this.song.unload()
+    }
+    if (this.rec.close) {
+      this.rec.close()
     }
   }
 
@@ -77,13 +80,13 @@ export default class Song extends Component {
 
   stop = () => {
     const {
-      song: {id, name},
+      song: {id},
     } = this.props
 
     this.rec.stop(function(blob) {
       const formData = new FormData()
       formData.set('source', id)
-      formData.append('file', blob, `${name}-${new Date().toISOString()}.wav`)
+      formData.set('audio', blob)
       axios.post('/audio/', formData)
     })
   }
