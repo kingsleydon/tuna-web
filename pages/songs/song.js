@@ -7,6 +7,7 @@ import Head from '../../components/Head'
 import AudioRecorder from '../../components/AudioRecorder'
 import Lyric from '../../components/Lyric'
 import ProgressBar from '../../components/ProgressBar'
+import Parallelogram from '../../components/Parallelogram'
 import {HEADER_MAP} from '../../constants/header'
 import './song.css'
 
@@ -31,6 +32,7 @@ export default class Song extends Component {
     error: false,
     uploading: false,
     uploaded: false,
+    uploadProgress: 0,
   }
 
   componentDidMount() {
@@ -92,18 +94,26 @@ export default class Song extends Component {
       const formData = new FormData()
       formData.set('source', id)
       formData.set('audio', blob)
-      axios.post('/audio/', formData).then(({data}) => {
-        const {taskId} = camelizeKeys(data)
-        if (taskId) {
-          this.setState({
-            uploaded: true,
-            uploading: false,
-          })
-          setTimeout(() => {
-            Router.push(`/result?id=${taskId}`, `/results/${taskId}`)
-          }, 3000)
-        }
-      })
+      axios
+        .post('/audio/', formData, {
+          onUploadProgress: e => {
+            this.setState({
+              uploadProgress: Math.round((e.loaded * 100) / e.total),
+            })
+          },
+        })
+        .then(({data}) => {
+          const {taskId} = camelizeKeys(data)
+          if (taskId) {
+            this.setState({
+              uploaded: true,
+              uploading: false,
+            })
+            setTimeout(() => {
+              Router.push(`/result?id=${taskId}`, `/results/${taskId}`)
+            }, 3000)
+          }
+        })
     })
   }
 
@@ -120,6 +130,7 @@ export default class Song extends Component {
       error,
       uploading,
       uploaded,
+      uploadProgress,
     } = this.state
 
     const {song} = this.props
@@ -127,6 +138,8 @@ export default class Song extends Component {
     if (!song) {
       return null
     }
+
+    // const uploading = true
 
     const finished = uploaded || uploading
     const loading = (!songLoaded || !recorderLoaded) && !error && !finished
@@ -167,8 +180,28 @@ export default class Song extends Component {
               offset={song.offset}
             />
           )}
-          {uploading && <div>上传中</div>}
-          {uploaded && <div>上传完成, 即将跳转</div>}
+          {uploading && (
+            <div className="Song-upload">
+              <img
+                className="Song-uploadImage"
+                src="/static/upload.svg"
+                alt=""
+              />
+              <div className="Song-uploadProgress">{uploadProgress}%</div>
+              <div className="Song-uploadText">上传中</div>
+            </div>
+          )}
+          {uploaded && (
+            <div className="Song-upload">
+              <img
+                className="Song-uploadImage"
+                src="/static/finish.svg"
+                alt=""
+              />
+              <div className="Song-uploadProgress">上传完成</div>
+              <div className="Song-uploadText">正在跳转结果页</div>
+            </div>
+          )}
         </div>
 
         {loaded && (
@@ -178,12 +211,21 @@ export default class Song extends Component {
             color={nameColor}
             position={position}
             // FIXME: remove debug
+          />
+        )}
+
+        {loaded && !position && (
+          <Parallelogram
+            className="Song-startButton"
             onClick={() => {
               if (this.song) {
                 this.song.playing() ? this.stop() : this.start()
               }
             }}
-          />
+            color={nameColor}
+          >
+            开始演唱
+          </Parallelogram>
         )}
       </div>
     )

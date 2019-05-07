@@ -6,7 +6,7 @@ import Header from '../components/Header'
 import {HEADER_MAP} from '../constants/header'
 import '../styles/global.css'
 
-const timeout = 400
+const timeout = 800
 export default class Tuna extends App {
   render() {
     const {

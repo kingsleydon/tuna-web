@@ -1,3 +1,43 @@
 .Result {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
 
+  > div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &-pending {
+    font-weight: bold;
+
+    &Image {
+      width: 100px;
+      margin-top: -60px;
+    }
+
+    &Text {
+      font-size: 40px;
+    }
+
+    &Name {
+      font-size: 20px;
+    }
+  }
+
+  &-success {
+    img {
+      width: 120px;
+      opacity: 0.3;
+      margin: -60px 0 10px;
+    }
+  }
+
+  &-startButton {
+    padding: 10px 20px;
+    margin: 20px 0 0;
+  }
 }

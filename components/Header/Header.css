@@ -1,5 +1,7 @@
 .Header {
-  font-weight: 800;
+  .Parallelogram-content {
+    font-weight: 800;
+  }
 
   &-name {
     --left: 30px;

@@ -15,4 +15,35 @@
     margin: 0 auto 60px;
     width: 80%;
   }
+
+  &-upload {
+    flex: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-weight: bold;
+
+    &Image {
+      width: 150px;
+      margin-top: -60px;
+    }
+
+    &Progress {
+      font-size: 30px;
+    }
+
+    &Text {
+    }
+  }
+
+  &-startButton {
+    position: fixed;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    bottom: 120px;
+    padding: 10px
+  }
 }

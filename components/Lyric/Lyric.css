@@ -11,6 +11,9 @@
     padding: 10px 0;
     transition: 0.3s ease-in;
     background-clip: text;
+    /* HACK */
+    background-size: calc(100% - 1px) 100%;
+    background-repeat: no-repeat;
 
     &--acted {
       filter: opacity(0);

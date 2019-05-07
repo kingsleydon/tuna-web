@@ -1,1 +1,46 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 58 58"><path d="M29 0C12.984 0 0 12.984 0 29s12.984 29 29 29 29-12.984 29-29S45.016 0 29 0zm0 36.08a7.08 7.08 0 1 1 0-14.16 7.08 7.08 0 0 1 0 14.16z" fill="#ebba16"/><path d="M6.487 22.932a1.001 1.001 0 0 1-.973-1.233c.946-3.935 2.955-7.522 5.809-10.376s6.441-4.862 10.376-5.809a1.001 1.001 0 0 1 .467 1.945c-3.575.859-6.836 2.685-9.429 5.277S8.319 18.59 7.46 22.165a1.003 1.003 0 0 1-.973.767zM36.066 52.514a1.001 1.001 0 0 1-.233-1.973c3.576-.859 6.837-2.685 9.43-5.277s4.418-5.854 5.277-9.429a.999.999 0 1 1 1.945.467c-.946 3.935-2.955 7.522-5.809 10.376s-6.441 4.862-10.377 5.809a1.016 1.016 0 0 1-.233.027z" fill="#efce4a"/><path d="M11.313 24.226A.999.999 0 0 1 10.338 23a16.925 16.925 0 0 1 12.661-12.661.996.996 0 0 1 1.2.747.999.999 0 0 1-.747 1.2c-2.725.635-5.207 2.014-7.18 3.986s-3.352 4.455-3.986 7.18a1 1 0 0 1-.973.774zM34.773 47.688a.999.999 0 0 1-.226-1.973c2.725-.635 5.207-2.014 7.18-3.986s3.352-4.455 3.986-7.18a.993.993 0 0 1 1.2-.747.999.999 0 0 1 .747 1.2 16.925 16.925 0 0 1-12.661 12.661 1.01 1.01 0 0 1-.226.025z" fill="#efce4a"/><path d="M16.14 25.519a1 1 0 0 1-.978-1.213 12.013 12.013 0 0 1 9.143-9.143 1 1 0 0 1 .427 1.953 10.01 10.01 0 0 0-7.617 7.617.999.999 0 0 1-.975.786zM33.48 42.861a1 1 0 0 1-.213-1.976 10.01 10.01 0 0 0 7.617-7.617 1 1 0 0 1 1.953.427 12.013 12.013 0 0 1-9.143 9.143.967.967 0 0 1-.214.023z" fill="#efce4a"/><path d="M29 38.08c-5.007 0-9.08-4.073-9.08-9.08s4.073-9.08 9.08-9.08 9.08 4.073 9.08 9.08-4.073 9.08-9.08 9.08zm0-14.16c-2.801 0-5.08 2.279-5.08 5.08s2.279 5.08 5.08 5.08 5.08-2.279 5.08-5.08-2.279-5.08-5.08-5.08z" fill="#e7eced"/></svg>
+<svg class="ldi-wvwbeo" width="200px"  height="200px"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" style="background: none;"><!--?xml version="1.0" encoding="utf-8"?--><!--Generator: Adobe Illustrator 21.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)--><svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" style="transform-origin: 50px 50px 0px;" xml:space="preserve"><g style="transform-origin: 50px 50px 0px;"><g style="transform-origin: 50px 50px 0px; transform: scale(0.6);"><g style="transform-origin: 50px 50px 0px;"><g><style type="text/css" class="ld ldt-power-on" style="transform-origin: 50px 50px 0px; animation-duration: 0.7s; animation-delay: 0s; animation-direction: normal;">.st0{fill:#D1D1D1;} .st1{fill:#454545;} .st2{fill:#464646;} .st3{fill:#474747;} .st4{fill:#494949;} .st5{fill:#D1D2D1;}</style><g class="ld ldt-power-on" style="transform-origin: 50px 50px 0px; animation-duration: 0.7s; animation-delay: 0.0583333s; animation-direction: normal;"><path class="st0" d="M27.378,92.5c-5.288,0-9.792-2.668-12.048-7.138c-3.657-7.246-0.386-16.816,7.446-21.787 c2.617-1.661,5.486-2.62,8.354-2.8V27c0-3.22,2.071-6.01,5.154-6.941L76.816,7.81c0.681-0.206,1.387-0.31,2.098-0.31 c1.546,0,3.081,0.508,4.323,1.43c1.834,1.361,2.928,3.537,2.928,5.821v47.619c0,0.285-0.034,0.563-0.097,0.828 c0.162,6.045-3.306,12.289-8.911,15.847c-2.919,1.852-6.15,2.831-9.344,2.831c-5.288,0-9.792-2.669-12.048-7.139 c-3.656-7.246-0.386-16.815,7.446-21.786c2.646-1.68,5.551-2.641,8.452-2.805V37.363l-26.029,7.832v28.381 c0,0.05-0.001,0.098-0.003,0.148c0.208,6.132-3.258,12.358-8.908,15.944C33.803,91.521,30.572,92.5,27.378,92.5z" fill="#ff5c62" style="fill: rgb(255, 92, 98);"></path></g><g class="ld ldt-power-on" style="transform-origin: 50px 50px 0px; animation-duration: 0.7s; animation-delay: 0.116667s; animation-direction: normal;"><path class="st1" d="M82.626,14.752c0-1.175-0.556-2.281-1.5-2.981c-0.943-0.7-2.161-0.914-3.287-0.573L37.308,23.446 c-1.567,0.473-2.639,1.917-2.639,3.554v37.568c-3.081-0.717-6.694-0.103-9.997,1.994c-6.218,3.946-8.987,11.65-6.183,17.205 c2.804,5.556,10.119,6.861,16.337,2.914c4.789-3.04,7.528-8.306,7.255-13.104h0.013V42.565L75.2,32.603V53.97 c-3.103-0.753-6.756-0.15-10.094,1.968c-6.217,3.946-8.986,11.649-6.183,17.204c2.804,5.556,10.119,6.861,16.337,2.914 c4.984-3.163,7.748-8.737,7.207-13.687h0.159V14.752z" fill="#ffffcb" style="fill: rgb(255, 255, 203);"></path></g><metadata xmlns:d="https://loading.io/stock/" class="ld ldt-power-on" style="transform-origin: 50px 50px 0px; animation-duration: 0.7s; animation-delay: 0.175s; animation-direction: normal;">
+<d:name class="ld ldt-power-on" style="transform-origin: 50px 50px 0px; animation-duration: 0.7s; animation-delay: 0.233333s; animation-direction: normal;">music</d:name>
+<d:tags class="ld ldt-power-on" style="transform-origin: 50px 50px 0px; animation-duration: 0.7s; animation-delay: 0.291667s; animation-direction: normal;">sound,rhythm,score,play,music,map</d:tags>
+<d:license class="ld ldt-power-on" style="transform-origin: 50px 50px 0px; animation-duration: 0.7s; animation-delay: 0.35s; animation-direction: normal;">cc0</d:license>
+<d:slug class="ld ldt-power-on" style="transform-origin: 50px 50px 0px; animation-duration: 0.7s; animation-delay: 0.408333s; animation-direction: normal;">wvwbeo</d:slug>
+</metadata></g></g></g></g><style type="text/css" class="ld ldt-power-on" style="transform-origin: 50px 50px 0px; animation-duration: 0.7s; animation-delay: 0.466667s; animation-direction: normal;">@keyframes ldt-power-on {
+  0%, 20%, 100% {
+    animation-timing-function: cubic-bezier(0, 0.5, 0.5, 1);
+  }
+  0% {
+    -webkit-transform: scale(0.05, 0.05);
+    transform: scale(0.05, 0.05);
+  }
+  20% {
+    -webkit-transform: scale(1, 0.1);
+    transform: scale(1, 0.1);
+  }
+  100% {
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+}
+@-webkit-keyframes ldt-power-on {
+  0%, 20%, 100% {
+    animation-timing-function: cubic-bezier(0, 0.5, 0.5, 1);
+  }
+  0% {
+    -webkit-transform: scale(0.05, 0.05);
+    transform: scale(0.05, 0.05);
+  }
+  20% {
+    -webkit-transform: scale(1, 0.1);
+    transform: scale(1, 0.1);
+  }
+  100% {
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+}
+.ldt-power-on {
+  -webkit-transform: scale(0.05, 0.05);
+  transform: scale(0.05, 0.05);
+  -webkit-animation: ldt-power-on 1s forwards;
+  animation: ldt-power-on 1s forwards;
+}
+</style></svg></svg>

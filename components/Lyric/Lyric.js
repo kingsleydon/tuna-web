@@ -36,8 +36,6 @@ export default class Lyric extends Component {
     return null
   }
 
-  syncScroll = () => {}
-
   render() {
     const {lines, activeLineIndex} = this.state
     const {className, style, position} = this.props

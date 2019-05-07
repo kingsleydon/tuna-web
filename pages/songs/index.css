@@ -3,34 +3,44 @@
     /* text-align: right; */
     display: flex;
     flex-direction: column;
-    padding: 30px 25px;
+    padding: 0 20px;
     font-weight: bold;
-    font-style: italic;
+    overflow-y: auto;
+    height: 100%;
+    /* font-style: italic; */
   }
 
   &-song {
-    margin: 32px 0;
+    box-sizing: border-box;
+    padding: 16px;
+    width: 100%;
     display: flex;
     align-items: center;
+    background-color: rgba(255, 255, 255, 0.04);
+    /* box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.1); */
+    position: relative;
+    margin-top: 50px;
 
     &Info {
-      flex:1;
-      /* transform: skewX(-10deg); */
+      flex: 1;
       margin-right: 20px;
     }
 
-    img {
-      width: 60px;
-      height: 60px;
+    &Image {
+      width: 120px;
+      /* transform: rotate(40deg); */
+      opacity: 0.1;
+      position: absolute;
+      right: -10px;
     }
 
     &--disabled {
-      opacity: 0.3;
+      opacity: 0.1;
     }
   }
 
   &-name {
-    font-size: 45px;
+    font-size: 30px;
   }
 
   &-artist {

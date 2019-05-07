@@ -14,12 +14,13 @@ export default class Songs extends Component {
 
   renderSong = ({id, name, artist, disabled = false}) => {
     const item = (
-      <a className={cx('Songs-song', {'Songs-song--disabled': disabled})}>
+      <div className={cx('Songs-song', {'Songs-song--disabled': disabled})}>
         <div className="Songs-songInfo">
           <span className="Songs-name">{name}</span>
           <span className="Songs-artist">{artist}</span>
         </div>
-      </a>
+        <img className="Songs-songImage" src="/static/song.svg" alt="" />
+      </div>
     )
     if (disabled) {
       return item
@@ -42,7 +43,7 @@ export default class Songs extends Component {
         </Head>
         <div className="Songs-list">
           {list.map(this.renderSong)}
-          {Array(5)
+          {Array(1)
             .fill({id: null, name: 'COMING', artist: 'SOON', disabled: true})
             .map(this.renderSong)}
         </div>

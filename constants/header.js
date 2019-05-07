@@ -4,7 +4,11 @@ export const HEADER_MAP = {
     color: ['#32CCBC', '#90F7EC'],
   },
   '/songs/song': {
-    name: 'RECORDING',
+    name: 'RECORD',
     color: ['#6c5b7b', '#c06c84'],
+  },
+  '/result': {
+    name: 'RESULT',
+    color: ['#ff5c62', '#ffffcb'],
   },
 }

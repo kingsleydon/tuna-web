@@ -1,9 +1,13 @@
 @import-normalize;
 
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
 body {
   margin: 0;
-  color: #ffffff;
-  background-color: #111111;
+  color: rgba(255, 255, 255, 0.8);
+  background-color: #080808;
   font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue',
     Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
@@ -27,6 +31,7 @@ body {
 
   > div:last-child {
     flex: 1;
+    overflow: hidden;
 
     > div {
       height: 100%;
@@ -75,7 +80,7 @@ a {
 
   &-exit-active {
     transform: translateX(-110%);
-    transition: transform 400ms ease-in;
+    transition: transform 400ms ease-out;
   }
 }
 
