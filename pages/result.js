@@ -58,7 +58,7 @@ export default class Result extends Component {
             }
           }
         })
-      }, 10000)
+      }, 5000)
     }
   }
 
@@ -77,10 +77,8 @@ export default class Result extends Component {
 
     const {className, style, result: firstResult, ...restProps} = this.props
 
-    // const status = 'PENDING'
     const {
       status,
-      // audio,
       song: {name},
     } = result || firstResult
 

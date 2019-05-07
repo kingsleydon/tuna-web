@@ -139,8 +139,6 @@ export default class Song extends Component {
       return null
     }
 
-    // const uploading = true
-
     const finished = uploaded || uploading
     const loading = (!songLoaded || !recorderLoaded) && !error && !finished
     const loaded = songLoaded && recorderLoaded && !error && !finished
@@ -152,12 +150,6 @@ export default class Song extends Component {
         <Head>
           <title>{name}</title>
         </Head>
-
-        {/* HACK */}
-        <div className="preload">
-          <img className="Song-uploadImage" src="/static/upload.svg" alt="" />
-          <img className="Song-uploadImage" src="/static/finish.svg" alt="" />
-        </div>
 
         <AudioRecorder
           ref={this.setRecRef}
@@ -216,7 +208,6 @@ export default class Song extends Component {
             duration={duration}
             color={nameColor}
             position={position}
-            // FIXME: remove debug
           />
         )}
 
