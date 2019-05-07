@@ -154,7 +154,7 @@ export default class Song extends Component {
         </Head>
 
         {/* HACK */}
-        <div style={{display: 'none'}}>
+        <div className="preload">
           <img className="Song-uploadImage" src="/static/upload.svg" alt="" />
           <img className="Song-uploadImage" src="/static/finish.svg" alt="" />
         </div>

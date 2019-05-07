@@ -52,8 +52,9 @@ export default class Result extends Component {
           if (data) {
             const result = camelizeKeys(data)
             if (result.status !== 'PENDING') {
-              clearInterval(this.interval)
-              this.setState({result: camelizeKeys(data)})
+              // clearInterval(this.interval)
+              // this.setState({result: camelizeKeys(data)})
+              location.reload()
             }
           }
         })

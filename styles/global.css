@@ -14,6 +14,12 @@ body {
     'Segoe UI Symbol';
 }
 
+.preload {
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
 #__next {
   width: 100vw;
   height: 100vh;
