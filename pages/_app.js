@@ -27,6 +27,12 @@ export default class Tuna extends App {
             href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700,700i,800,800i"
             rel="stylesheet"
           />
+          <meta name="apple-mobile-web-app-title" content="Project Tuna" />
+          <meta name="apple-mobile-web-app-capable" content="yes" />
+          <meta
+            name="apple-mobile-web-app-status-bar-style"
+            content="black-translucent"
+          />
         </Head>
         <PageTransition classNames="Header-transition" timeout={timeout}>
           {header ? (
