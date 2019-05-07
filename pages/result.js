@@ -93,11 +93,9 @@ export default class Result extends Component {
         </Head>
         {status === 'PENDING' && (
           <div className="Result-pending">
-            <img
-              className="Result-pendingImage"
-              src="/static/pending.svg"
-              alt=""
-            />
+            <div className="Result-pendingImage">
+              <img src="/static/pending.svg" alt="" />
+            </div>
             <div className="Result-pendingText">TUNA 处理中</div>
             <div className="Result-pendingName">{name}</div>
           </div>
@@ -106,11 +104,9 @@ export default class Result extends Component {
           <div className="Result-success">
             {songLoaded ? (
               <Fragment>
-                <img
-                  className="Result-successImage"
-                  src="/static/song.svg"
-                  alt=""
-                />
+                <div className="Result-successImage">
+                  <img src="/static/song.svg" alt="" />
+                </div>
                 <div className="Result-pendingText">TUNA 处理完成</div>
                 <div className="Result-pendingName">{name}</div>
 

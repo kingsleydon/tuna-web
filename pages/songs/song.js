@@ -180,22 +180,18 @@ export default class Song extends Component {
           )}
           {uploading && (
             <div className="Song-upload">
-              <img
-                className="Song-uploadImage"
-                src="/static/upload.svg"
-                alt=""
-              />
+              <div className="Song-uploadImage">
+                <img src="/static/upload.svg" alt="" />
+              </div>
               <div className="Song-uploadProgress">{uploadProgress}%</div>
               <div className="Song-uploadText">上传中</div>
             </div>
           )}
           {uploaded && (
             <div className="Song-upload">
-              <img
-                className="Song-uploadImage"
-                src="/static/finish.svg"
-                alt=""
-              />
+              <div className="Song-uploadImage">
+                <img src="/static/finish.svg" alt="" />
+              </div>
               <div className="Song-uploadProgress">上传完成</div>
               <div className="Song-uploadText">正在跳转结果页</div>
             </div>
