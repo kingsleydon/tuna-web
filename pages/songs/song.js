@@ -153,6 +153,12 @@ export default class Song extends Component {
           <title>{name}</title>
         </Head>
 
+        {/* HACK */}
+        <div style={{display: 'none'}}>
+          <img className="Song-uploadImage" src="/static/upload.svg" alt="" />
+          <img className="Song-uploadImage" src="/static/finish.svg" alt="" />
+        </div>
+
         <AudioRecorder
           ref={this.setRecRef}
           onLoad={() => {
