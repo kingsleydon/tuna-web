@@ -57,7 +57,7 @@ export default class Demo extends Component {
     }
   }
 
-  componentWillUnmount =() => {
+  componentWillUnmount = () => {
     this.result.unload()
     this.origin.unload()
   }

@@ -33,6 +33,7 @@ export default class Tuna extends App {
             name="apple-mobile-web-app-status-bar-style"
             content="black-translucent"
           />
+          <meta name="mobile-web-app-capable" content="yes" />
         </Head>
         <PageTransition classNames="Header-transition" timeout={timeout}>
           {header ? (
