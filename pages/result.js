@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from 'react'
 import cx from 'classnames'
 import {withRouter} from 'next/router'
+import Link from 'next/link'
 import {camelizeKeys} from 'humps'
 import {Howl} from 'howler'
 import Parallelogram from '../components/Parallelogram'
@@ -69,7 +70,9 @@ export default class Result extends Component {
   }
 
   start = () => {
-    this.song.play()
+    if (!this.song.playing()) {
+      this.song.play()
+    }
   }
 
   render() {
@@ -117,6 +120,9 @@ export default class Result extends Component {
                 >
                   播放
                 </Parallelogram>
+                <Link href="/">
+                  <a className="Result-retryButton">再试一次</a>
+                </Link>
               </Fragment>
             ) : (
               <div>结果加载中</div>

@@ -31,6 +31,11 @@ export default class Index extends Component {
               选择歌曲
             </MenuButton>
           </Link>
+          <Link href="/demo">
+            <MenuButton color={['#6c5b7b', '#c06c84']} extra="DEMO">
+              试听
+            </MenuButton>
+          </Link>
         </div>
       </div>
     )

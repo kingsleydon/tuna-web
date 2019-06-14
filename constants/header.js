@@ -11,4 +11,8 @@ export const HEADER_MAP = {
     name: 'RESULT',
     color: ['#ff5c62', '#ffffcb'],
   },
+  '/demo': {
+    name: 'DEMO',
+    color: ['#ff5c62', '#ffffcb'],
+  },
 }
