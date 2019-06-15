@@ -34,6 +34,7 @@ export default class Tuna extends App {
             content="black-translucent"
           />
           <meta name="mobile-web-app-capable" content="yes" />
+          <meta name="theme-color" content="#222222" />
         </Head>
         <PageTransition classNames="Header-transition" timeout={timeout}>
           {header ? (
