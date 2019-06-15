@@ -76,11 +76,11 @@ export default class Song extends Component {
   }
 
   start = () => {
-    this.rec.start()
+    this.song.play()
+    this.song.once('end', this.stop)
+    window.requestAnimationFrame(this.setPosition)
     setTimeout(() => {
-      this.song.play()
-      this.song.once('end', this.stop)
-      window.requestAnimationFrame(this.setPosition)
+      this.rec.start()
     }, 500)
   }
 
