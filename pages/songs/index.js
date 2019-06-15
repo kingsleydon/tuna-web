@@ -44,7 +44,7 @@ export default class Songs extends Component {
         <div className="Songs-list">
           {list.map(this.renderSong)}
           {Array(1)
-            .fill({id: null, name: 'COMING', artist: 'SOON', disabled: true})
+            .fill({id: 'soon', name: 'COMING', artist: 'SOON', disabled: true})
             .map(this.renderSong)}
         </div>
       </div>

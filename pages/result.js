@@ -67,6 +67,9 @@ export default class Result extends Component {
     if (this.interval) {
       clearInterval(this.interval)
     }
+    if (this.song) {
+      this.song.unload()
+    }
   }
 
   start = () => {

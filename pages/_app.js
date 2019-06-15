@@ -8,6 +8,31 @@ import '../styles/global.css'
 
 const timeout = 800
 export default class Tuna extends App {
+  listenTouch = () => {
+    if (this.touchTimeout) {
+      clearTimeout(this.touchTimeout)
+    }
+    this.touchTimeout = setTimeout(() => {
+      location.href = '/'
+    }, 600000)
+  }
+
+  componentDidMount = () => {
+    this.listenTouch()
+    document
+      .querySelector('body')
+      .addEventListener('touchstart', this.listenTouch)
+  }
+
+  componentWillUnmount = () => {
+    if (this.touchTimeout) {
+      clearTimeout(this.touchTimeout)
+    }
+    document
+      .querySelector('body')
+      .removeEventListener('touchstart', this.listenTouch)
+  }
+
   render() {
     const {
       Component,
