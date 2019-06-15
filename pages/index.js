@@ -22,6 +22,8 @@ export default class Index extends Component {
           </div>
         </div>
 
+        <div className="Index-tips">现场录音环境不佳，建议试听 DEMO 体验</div>
+
         <div className="Index-menu">
           {/* <MenuButton color={['#6c5b7b', '#c06c84']} extra="QUICK">
             快速开始

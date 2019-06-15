@@ -14,7 +14,7 @@ export default class Tuna extends App {
     }
     this.touchTimeout = setTimeout(() => {
       location.href = '/'
-    }, 600000)
+    }, 300000)
   }
 
   componentDidMount = () => {
